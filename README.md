@@ -1,7 +1,5 @@
-# AI-PR-Comments
-# 🤖 AI-Powered Pull Request (PR) Review System
-
-### 🔍 Project Overview
+#AI-Powered Pull Request (PR) Review System
+#Project Overview
 
 This project automates **code reviews** for GitHub pull requests using **OpenAI’s GPT models**.
 It analyzes code changes in PRs and generates **inline, line-specific comments** — pointing out mistakes, suggesting improvements, and even giving feedback on clean code.

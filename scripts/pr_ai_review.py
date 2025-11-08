@@ -14,7 +14,7 @@ if not all([GITHUB_TOKEN, OPENAI_API_KEY, REPO]):
     raise ValueError("Missing required environment variables (GH_TOKEN, OPENAI_API_KEY, GITHUB_REPOSITORY)")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
-headers = {"Authorization": f"token {GH_TOKEN}"}
+headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
 print("[AI-PR-Review] Fetching latest open pull request...")
 

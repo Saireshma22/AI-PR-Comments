@@ -6,15 +6,15 @@ import json
 
 # Load environment variables
 load_dotenv()
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("GH_TOKEN")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 REPO = os.getenv("GITHUB_REPOSITORY")
 
 if not all([GITHUB_TOKEN, OPENAI_API_KEY, REPO]):
-    raise ValueError("Missing required environment variables (GITHUB_TOKEN, OPENAI_API_KEY, GITHUB_REPOSITORY)")
+    raise ValueError("Missing required environment variables (GH_TOKEN, OPENAI_API_KEY, GITHUB_REPOSITORY)")
 
 client = OpenAI(api_key=OPENAI_API_KEY)
-headers = {"Authorization": f"token {GITHUB_TOKEN}"}
+headers = {"Authorization": f"token {GH_TOKEN}"}
 
 print("[AI-PR-Review] Fetching latest open pull request...")
 

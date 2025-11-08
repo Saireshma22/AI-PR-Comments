@@ -7,8 +7,6 @@ It analyzes code changes in PRs and generates **inline, line-specific comments**
 
 No need for manual PR number input — the script automatically fetches the **latest open PR** and posts feedback directly into GitHub.
 
----
-
 # Key Features
 Automatically detects the latest open pull request
 Uses **OpenAI GPT-4o-mini** for AI-based code analysis
@@ -16,23 +14,6 @@ Posts **inline code review comments** directly in the PR
 Gives short, clear, one-line suggestions per issue
 Uses **GitHub Secrets** and `.env` for secure API key management
 Can be run manually or integrated into a **GitHub Action workflow**
-
----
-
-# Project Structure
-
-```
-review/
-│
-├── scripts/
-│   └── pr_ai_review.py     # Main Python script for PR review
-│
-├── .env                    # Stores your tokens securely
-├── requirements.txt        # Python dependencies
-└── README.md               # Project documentation (this file)
-```
-
----
 
 # Setup Instructions
 
@@ -58,43 +39,7 @@ The script will:
 
 
 If you want to run it automatically when someone opens a pull request, create a file at:
-
-```
 .github/workflows/ai_pr_review.yml
-```
-
-```yaml
-name: AI PR Review
-
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run AI PR Review
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python scripts/pr_ai_review.py
-```
-
----
-
 
 # Final Output:
 When a developer submits a pull request, the AI instantly reviews it, posts inline feedback, and highlights corrections or improvements in concise, human-like comments.
@@ -104,4 +49,3 @@ When a developer submits a pull request, the AI instantly reviews it, posts inli
 **OpenAI API (GPT-4o-mini)**
 **GitHub REST API**
 **dotenv** for environment variables
-

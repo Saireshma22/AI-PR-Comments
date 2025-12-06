@@ -37,7 +37,9 @@ The script will:
 3. Generate AI-based review comments.
 4. Post them **inline** in your PR automatically.
 
-
+To run in your terminal
+python pr_ai_review.py
+or
 If you want to run it automatically when someone opens a pull request, create a file at:
 .github/workflows/ai_pr_review.yml
 
